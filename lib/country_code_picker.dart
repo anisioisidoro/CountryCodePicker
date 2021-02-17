@@ -152,7 +152,12 @@ class CountryCodePickerState extends State<CountryCodePicker> {
       );
     else {
       _widget = FlatButton(
+        color: Colors.white,
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         padding: widget.padding,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         onPressed: widget.enabled ? showCountryCodePickerDialog : null,
         child: Flex(
           direction: Axis.horizontal,
@@ -191,9 +196,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
                 flex: widget.alignLeft ? 0 : 1,
                 fit: widget.alignLeft ? FlexFit.tight : FlexFit.loose,
                 child: Padding(
-                    padding: widget.alignLeft
-                        ? const EdgeInsets.only(right: 16.0, left: 8.0)
-                        : const EdgeInsets.only(right: 16.0),
+                    padding: EdgeInsets.all(0),
                     child: Icon(
                       Icons.arrow_drop_down,
                       color: Colors.grey,
@@ -291,7 +294,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
     ).then((e) {
       if (e != null) {
         setState(() {
-          selectedItem = e;
+          //selectedItem = selectedItem;
         });
 
         _publishSelection(e);
